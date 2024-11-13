@@ -1,4 +1,4 @@
-package org.wora.wrm.utils.annotations.exists;
+package org.wora.wrm.utils.annotations.exist;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
@@ -6,7 +6,7 @@ import jakarta.validation.Payload;
 import java.lang.annotation.*;
 
 @Documented
-@Constraint(validatedBy = ExistsValidator.class)
+@Constraint(validatedBy = ExistValidator.class)
 @Target({ ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Exist {
