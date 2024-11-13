@@ -27,6 +27,7 @@ public class WaitingList implements Serializable {
 
     @Column(
             name = "algorithmType",
+            updatable = false,
             nullable = false
     )
     private AlgorithmType algorithmType;
