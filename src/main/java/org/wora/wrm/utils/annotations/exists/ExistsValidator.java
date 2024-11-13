@@ -4,14 +4,15 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
+@Component
+@RequiredArgsConstructor
 public class ExistsValidator implements ConstraintValidator<Exist, String> {
 
     private final static String FIELD_NAME = "id";
-
-    @PersistenceContext
     private EntityManager entityManager;
-
     private Class<?> entity;
 
     @Override
