@@ -6,6 +6,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "visitors")
@@ -45,6 +46,13 @@ public class Visitor implements Serializable {
             nullable = false
     )
     private short age;
+
+    @OneToMany(
+            mappedBy = "visitor",
+            cascade = CascadeType.REMOVE,
+            fetch = FetchType.EAGER
+    )
+    private List<Visit> visits;
 
 
     @CreationTimestamp

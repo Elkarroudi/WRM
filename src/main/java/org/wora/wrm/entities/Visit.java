@@ -1,6 +1,7 @@
 package org.wora.wrm.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.wora.wrm.entities.embeddeds.EmbeddedVisitKey;
@@ -47,6 +48,16 @@ public class Visit implements Serializable {
             nullable = false
     )
     private Duration estimatedProcessingTime;
+
+    @ManyToOne
+    @MapsId("visitorId")
+    @JoinColumn(name = "visitorId")
+    private Visitor visitor;
+
+    @ManyToOne
+    @MapsId("waitingListId")
+    @JoinColumn(name = "waitingListId")
+    private WaitingList waitingListId;
 
 
     @CreationTimestamp

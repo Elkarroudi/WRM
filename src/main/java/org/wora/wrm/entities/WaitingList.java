@@ -9,6 +9,7 @@ import org.wora.wrm.entities.enums.WorkMode;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "waitingLists")
@@ -43,6 +44,13 @@ public class WaitingList implements Serializable {
             nullable = false
     )
     private int capacity;
+
+    @OneToMany(
+            mappedBy = "waitingListId",
+            cascade = CascadeType.REMOVE,
+            fetch = FetchType.EAGER
+    )
+    private List<Visit> waitingListId;
 
 
     @CreationTimestamp
