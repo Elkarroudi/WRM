@@ -38,11 +38,11 @@ public record CreateVisitorDTO(
         @NotBlank(message = "Phone is required")
         String phone,
 
+        @NotNull(message = "Age is required")
         @Min(
                 value = 18,
-                message = "Age must be greater than 0"
+                message = "Age must be greater or equal to 18"
         )
-        @NotNull
         short age
 
 ) {

@@ -1,22 +1,18 @@
 package org.wora.wrm.dtos.visit;
 
-import jakarta.validation.constraints.FutureOrPresent;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
-import org.wora.wrm.entities.enums.VisitStatus;
+import org.wora.wrm.dtos.embeddedKeys.EmbeddedVisitKeyDTO;
 
 import java.time.Duration;
-import java.time.LocalTime;
 
 public record CreateVisitDTO(
 
-        @NotNull(message = "Arrival Time is required")
-        @FutureOrPresent(message = "Arrival time must be now or in the future")
-        LocalTime arrivalTime,
-
-        @NotNull(message = "Status is required")
-        VisitStatus status,
+        @NotNull(message = "id object is required")
+        @Valid
+        EmbeddedVisitKeyDTO id,
 
         @NotNull(message = "Priority is required")
         @Max(

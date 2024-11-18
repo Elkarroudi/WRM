@@ -1,15 +1,24 @@
 package org.wora.wrm.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "visitors")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Visitor implements Serializable {
 
     @Id
@@ -52,7 +61,7 @@ public class Visitor implements Serializable {
             cascade = CascadeType.REMOVE,
             fetch = FetchType.EAGER
     )
-    private List<Visit> visits;
+    private List<Visit> visits = new ArrayList<>();
 
 
     @CreationTimestamp

@@ -4,14 +4,6 @@ spring:
     username: "postgres"
     password: "@@root@"
     driver-class-name: org.postgresql.Driver
-  web:
-    resources:
-      add-mappings: true
-
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
 
 app:
   default:

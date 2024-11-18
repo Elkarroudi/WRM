@@ -1,7 +1,9 @@
 package org.wora.wrm.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.wora.wrm.entities.Visit;
+import org.springframework.stereotype.Repository;
+import org.wora.wrm.entities.Visitor;
 
-public interface IVisitorRepository extends JpaRepository<Visit, String> {
+@Repository
+public interface IVisitorRepository extends JpaRepository<Visitor, String> {
 }

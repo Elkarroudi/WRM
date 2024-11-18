@@ -1,8 +1,8 @@
 package org.wora.wrm.dtos.waitingList;
 
 import jakarta.validation.constraints.FutureOrPresent;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import org.wora.wrm.entities.enums.AlgorithmType;
 import org.wora.wrm.entities.enums.WorkMode;
 
@@ -14,17 +14,12 @@ public record CreateWaitingListDTO(
         @FutureOrPresent(message = "Date must be in the present or future")
         LocalDate date,
 
-        @NotNull(message = "Algorithm type is required")
         AlgorithmType algorithmType,
 
         @NotNull(message = "Work mode is required")
         WorkMode workMode,
 
-        @NotNull(message = "Capacity is required")
-        @Min(
-                value = 1,
-                message = "Capacity must be equal or greater than 1"
-        )
+        @Positive(message = "The point capacity must be greater than zero")
         int capacity
 
 ) {

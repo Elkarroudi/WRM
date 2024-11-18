@@ -1,7 +1,10 @@
 package org.wora.wrm.entities;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Max;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.wora.wrm.entities.embeddeds.EmbeddedVisitKey;
@@ -14,6 +17,10 @@ import java.time.LocalTime;
 
 @Entity
 @Table(name = "visits")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Visit implements Serializable {
 
     @EmbeddedId
@@ -51,13 +58,13 @@ public class Visit implements Serializable {
 
     @ManyToOne
     @MapsId("visitorId")
-    @JoinColumn(name = "visitorId")
+    @JoinColumn(name = "visitor_id")
     private Visitor visitor;
 
     @ManyToOne
     @MapsId("waitingListId")
-    @JoinColumn(name = "waitingListId")
-    private WaitingList waitingListId;
+    @JoinColumn(name = "waiting_list_id")
+    private WaitingList waitingList ;
 
 
     @CreationTimestamp

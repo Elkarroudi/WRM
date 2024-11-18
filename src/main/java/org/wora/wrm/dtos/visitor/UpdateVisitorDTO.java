@@ -10,11 +10,11 @@ import org.wora.wrm.utils.annotations.uniqueField.UniqueField;
 
 public record UpdateVisitorDTO(
 
+        @NotBlank(message = "Id is required")
         @Exist(
                 entity = Visitor.class,
                 message = "Visitor with this id does not exist"
         )
-        @NotBlank
         String id,
 
         @Size(
