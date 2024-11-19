@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: "jdbc:postgresql://localhost:5432/wrm"
+    url: "jdbc:postgresql://localhost:5432/wrm_test_db"
     username: "postgres"
     password: "@@root@"
     driver-class-name: org.postgresql.Driver
@@ -10,7 +10,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     show-sql: true
 
 app:
